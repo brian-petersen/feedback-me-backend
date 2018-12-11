@@ -43,7 +43,7 @@ app.get('/api/pdf/:id', (req, res) => {
     })
 })
 
-app.get('/api/review/:id', createSession, ensureSession, (req, res) => {
+app.get('/api/feedback/:id', createSession, ensureSession, (req, res) => {
     const { id } = req.params
     const { reviewSession } = req.cookies
 
@@ -54,7 +54,7 @@ app.get('/api/review/:id', createSession, ensureSession, (req, res) => {
     res.json(reviews[id][reviewSession])
 })
 
-app.post('/api/review/:id', ensureSession, (req, res) => {
+app.post('/api/feedback/:id', ensureSession, (req, res) => {
     const { id } = req.params
     const { reviewSession } = req.cookies
 
@@ -67,7 +67,7 @@ app.post('/api/review/:id', ensureSession, (req, res) => {
     res.sendStatus(200)
 })
 
-app.get('/api/feedback/:id', (req, res) => {
+app.get('/api/review/:id', (req, res) => {
     const { id } = req.params
 
     if (!reviews.hasOwnProperty(id)) {
